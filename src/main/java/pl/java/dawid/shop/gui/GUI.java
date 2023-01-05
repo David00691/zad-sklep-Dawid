@@ -31,9 +31,9 @@ public class GUI {
     }
 
     public void productList() {
-        for(Product product : this.productDB.getProducts()) {
-            System.out.println(product);
-        }
+        productDB.getProducts().stream()
+                .forEach(System.out::println);
+
     }
 
     public String readName() {

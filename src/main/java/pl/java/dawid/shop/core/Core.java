@@ -72,11 +72,9 @@ public class Core {
     }
     public void buyProduct() {
         String name = this.gui.readName();
-            if (this.productDB.sellProduct(name) == true) {
-                System.out.println("Operation successfully");
-            }
-            else
-                System.out.println(("operation failed"));
+            this.productDB.sellProduct(name);
+
+
         System.out.println("StockCounter is:");
                this.gui.showProduct(productDB.getProduct(name));
     }

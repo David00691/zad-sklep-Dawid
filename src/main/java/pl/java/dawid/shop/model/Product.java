@@ -1,18 +1,13 @@
 package pl.java.dawid.shop.model;
 
-public class Product {
-    private String name;
+final public class Product extends Item {
     private int stockCounter ;
     private double price;
-
-
-    public Product() {
-    }
 
     public Product(String name,  int stockCounter,
                    double price) {
 
-        this.name = name;
+        super(name);
         this.stockCounter = stockCounter;
         this.price = price;
     }
@@ -23,6 +18,7 @@ public class Product {
         return name;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
@@ -31,8 +27,10 @@ public class Product {
         return this.stockCounter;
     }
 
-    public void setStockCounter(int stockCounter) {
+    public void setStockCounter(int stockCounter, boolean print) {
         this.stockCounter = stockCounter;
+        if(print)
+            System.out.println(this.toString());
     }
 
     public double getPrice() {
