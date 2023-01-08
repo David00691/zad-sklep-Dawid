@@ -71,8 +71,11 @@ public class Core {
         }
     }
     public void buyProduct() {
+        System.out.println("Wpisz nazwy i ilości po przecinku");
         String name = this.gui.readName();
-            this.productDB.sellProduct(name);
+        String count = this.gui.readcounter();
+
+            this.productDB.sellProduct(name, count);
 
 
         System.out.println("StockCounter is:");

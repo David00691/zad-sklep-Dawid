@@ -48,13 +48,19 @@ public class ProductDB {
         }
         return tokens;
     }
-    public void sellProduct(String names) {
+    public void sellProduct(String names, String count) {
         List<String> tokens = this.getTokens(names);
-        tokens.forEach( name ->
-           products.stream()
-                    .filter(product -> product.getName().equals(name)&& product.getStockCounter() > 0)
-                    .forEach(p -> p.setStockCounter(p.getStockCounter() - 1, true)  )
-        );
+        List<String> counts = this.getTokens(count);
+
+                    for(int i=0;i<tokens.size();i++ ) {
+                        String name = tokens.get(i);
+                        String c = counts.get(i);
+                        int no =Integer.parseInt(c);
+                        products.stream()
+                                .filter(product -> product.getName().equals(name) && product.getStockCounter() >= no)
+                                .forEach(p -> p.setStockCounter(p.getStockCounter() - no, true));
+                    }
+
     }
 
     public void addProduct(Product product) {

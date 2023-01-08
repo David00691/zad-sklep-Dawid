@@ -46,7 +46,11 @@ public class GUI {
         this.scanner.nextLine();
         return n;
     }
-
+    public String readcounter(){
+        System.out.println("Count:");
+        String n = this.scanner.nextLine();
+        return n;
+    }
     public User readLoginAndPassword() {
         User user = new User();
         System.out.println("Login:");
